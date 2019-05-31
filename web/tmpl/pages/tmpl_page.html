@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page {{template01}}">
+{% endblock %}
+
+{% block content %}
+    <section>
+        Template01
+    </section>
+{% endblock %}
+
+{% block modals %}
+    {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+{% endblock %}

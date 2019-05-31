@@ -1,0 +1,210 @@
+// Project mixins
+//////////////////////////////////////////////////////
+
+
+// Project Active
+@mixin active($property) {
+    transition: $property $transition-duration $transition-timing-function;
+}
+
+
+// Media
+
+@mixin lg {
+    @media (min-width: ($screen-lg)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media (min-width: ($screen-lg)) {
+        @content;
+    }
+}
+
+@mixin lg-and-md {
+    @media (min-width: ($screen-md)) {
+        @content;
+    }
+}
+
+@mixin not-lg {
+    @media (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin not-lg-and-md {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (min-width: $screen-md) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin sm-and-md {
+    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: $screen-sm) and (max-width: $screen-md-max) {
+        @content;
+    }
+}
+
+@mixin sm-and-xs {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin tablet-and-mobile {
+    @media (max-width: $screen-sm-max) {
+        @content;
+    }
+}
+
+@mixin not-xs {
+    @media (min-width: $screen-sm) {
+        @content;
+    }
+}
+
+@mixin xs {
+    @media (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media (max-width: $screen-xs-max) {
+        @content;
+    }
+}
+
+@mixin min {
+    @media (max-width: $screen-xs) {
+        @content;
+    }
+}
+
+// Retina
+@mixin retina {
+    @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
+    only screen and (-moz-min-device-pixel-ratio: 1.5),
+    only screen and (-o-min-device-pixel-ratio: 3/2),
+    only screen and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
+
+// Lare retina
+@mixin retina-large {
+    @media (min-width: $screen-sm) and (-Webkit-min-device-pixel-ratio: 1.5),
+    (min-width: $screen-sm) and (-moz-min-device-pixel-ratio: 1.5),
+    (min-width: $screen-sm) and (-o-min-device-pixel-ratio: 3/2),
+    (min-width: $screen-sm) and (min-device-pixel-ratio: 1.5) {
+        @content;
+    }
+}
+
+
+// Elements
+
+// Примесь для покраски кнопок
+@mixin btn-color($color, $background) {
+    background-color: $background;
+    color: $color;
+    @include transition(background $transition-duration $transition-timing-function $transition-delay);
+
+    &:hover, &:active {
+        background-color: darken($background, $fade);
+        color: $color;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+            background-color: $background;
+            color: $color;
+        }
+        &:active {
+            background-color: darken($background, $fade);
+            color: $color;
+        }
+    }
+}
+
+// Примесь для покраски ссылок
+@mixin link-style($color, $color-hover) {
+    @include transition(color $transition-duration $transition-timing-function $transition-delay);
+
+    &, &:focus {
+        color: $color;
+    }
+    &:hover, &:active {
+        color: $color-hover;
+    }
+
+    @include tablet-and-mobile {
+        &, &:hover, &:focus {
+           color: $color;
+        }
+        &:active {
+            color: $color-hover;
+        }
+    }
+}
+
+
+// Effects
+
+// Scale
+@mixin scale($size-scale){
+    @include prefix(transform, scale($size-scale), webkit moz ms o);
+}
+
+// Multi-transition
+// Pass in any number of transitions
+@mixin transition($transitions...) {
+    $unfoldedTransitions: ();
+    @each $transition in $transitions {
+        $unfoldedTransitions: append($unfoldedTransitions, unfoldTransition($transition), comma);
+    }
+
+    transition: $unfoldedTransitions;
+}
+
+@function unfoldTransition($transition) {
+    // Default values
+    $property: all;
+    $duration: $transition-duration;
+    $easing: $transition-timing-function; // Browser default is ease, which is what we want
+    $delay: null; // Browser default is 0, which is what we want
+    $defaultProperties: ($property, $duration, $easing, $delay);
+
+    // Grab transition properties if they exist
+    $unfoldedTransition: ();
+    @for $i from 1 through length($defaultProperties) {
+        $p: null;
+        @if $i <= length($transition) {
+            $p: nth($transition, $i)
+        } @else {
+            $p: nth($defaultProperties, $i)
+        }
+        $unfoldedTransition: append($unfoldedTransition, $p);
+    }
+
+    @return $unfoldedTransition;
+}

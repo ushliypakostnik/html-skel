@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, initial-scale=1.0, user-scalable=no" />
+    <meta name="HandheldFriendly" content="true">
+
+    <script>
+        var ieVersion = (function() {
+            var ua = window.navigator.userAgent;
+            var msie = ua.indexOf('MSIE');
+            if (msie > 0) {
+                return parseInt (ua.substring(msie + 5, ua.indexOf('.', msie)));
+            }
+            if (ua.indexOf('Trident/7.0') + 1) {
+                return 11;
+            }
+            return 0;
+        })();
+        if (ieVersion && ieVersion < 9) {
+            location.href = './legacy.html';
+        }
+    </script>
+
+    <link href="./css/main{{ ".min" if NODE_ENV == "production" else "" }}.css" rel="stylesheet" type="text/css" />
+
+    <!--[if lt IE 10]>
+        <script src="./js/respond{{ ".min" if NODE_ENV == "production" else "" }}.js"></script>
+    <![endif]-->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,700&amp;subset=cyrillic" rel="stylesheet">
+
+    <link href="./img/favicon.jpg" rel="icon" type="image/jpeg" />
+</head>
+<body>
+
+    <!-- page content -->
+
+    {% block template %}
+    <div class="page">
+    {% endblock %}
+
+        <div class="page__overlay"></div>
+
+        <div class="page__panel">
+
+            <a href="#" id="panelClose"><span class="icon icon-close"></span></a>
+
+            <ul>
+                <li><a href="#" class="modal-template-trigger">Модаль</a></li>
+                <li><a href="#">Ссылка</a></li>
+                <li><a href="#">Ссылка</a></li>
+                <li><a href="#">Ссылка</a></li>
+                <li><a href="#">Ссылка</a></li>
+                <li><a href="#">Ссылка</a></li>
+            </ul>
+
+        </div>
+
+        <div class="page__content">
+
+            <header class="fixed-header" role="banner">
+                <nav role="navigation">
+                    <a href="#" id="panelOpen"><span class="icon icon-navicon"></span></a>
+                    <div class="container">
+                        <a href="#" class="logo"></a>
+                    </div>
+                </nav>
+            </header>
+
+            <main role="main">
+                {% block content %}
+                {% endblock %}
+            </main>
+
+            <footer role="contentinfo">
+                <div class="container">
+                    <address>
+                        <a href="#" target="_blank">© 2010–2015</a>
+                    </address>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+
+    <!-- modals -->
+
+    {% block modals %}
+    <div class="modal fade" id="modal-template" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-template">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">Название модали</h3>
+                    <a href="#" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="icon icon-close"></span></a>
+                </div>
+                <div class="modal-body">
+                    <p>Российская армия готова к любому развитию событий на Украине и в мире, а российская оборонная промышленность к быстрому замещению импорта, в том числе с Украины, в военном производстве. Об этом заявил, по словам депутатов, министр обороны Сергей Шойгу в ходе закрытого правительственного часа в Госдуме.</p>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+
+    <!-- /modals -->
+
+    <!-- /page content -->
+
+    <script src="./js/app{{ ".min" if NODE_ENV == "production" else "" }}.js"></script>
+
+    <script>var debug = {{ "false" if NODE_ENV == "production" else "true" }};</script>
+
+    <script>
+        {% block scripts %}
+        DesignLayout.init({
+            debug: debug
+        });
+        {% endblock %}
+    </script>
+
+    {% if LIVERELOAD %}
+        <script src="//127.0.0.1:35729/livereload.js"></script>
+    {% endif %}
+</body>
+</html>

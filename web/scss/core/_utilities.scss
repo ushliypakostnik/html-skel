@@ -1,0 +1,106 @@
+// Utilities
+//////////////////////////////////////////////////////
+
+// Visibility utilities
+//////////////////////////////////////////////////////
+
+.visible-mobile-block,
+.visible-mobile-inline,
+.visible-mobile-inline-block,
+.visible-tablet-block,
+.visible-tablet-inline,
+.visible-tablet-inline-block,
+.visible-desktop-block,
+.visible-desktop-inline,
+.visible-desktop-inline-block {
+    display: none !important;
+}
+
+.visible-mobile-block {
+    @include mobile {
+        display: block !important;
+    }
+}
+.visible-mobile-inline {
+    @include mobile {
+        display: inline !important;
+    }
+}
+.visible-mobile-inline-block {
+    @include mobile {
+        display: inline-block !important;
+    }
+}
+
+.visible-tablet-block {
+    @include tablet {
+        display: block !important;
+    }
+}
+.visible-tablet-inline {
+    @include tablet {
+        display: inline !important;
+    }
+}
+.visible-tablet-inline-block {
+    @include tablet {
+        display: inline-block !important;
+    }
+}
+
+.visible-desktop-block {
+    @include desktop {
+        display: block !important;
+    }
+}
+.visible-desktop-inline {
+    @include desktop {
+        display: inline !important;
+    }
+}
+.visible-desktop-inline-block {
+    @include desktop {
+        display: inline-block !important;
+    }
+}
+
+.hidden-mobile {
+    @include mobile {
+        display: none !important;
+    }
+}
+
+.hidden-tablet {
+    @include tablet {
+        display: none !important;
+    }
+}
+.hidden-desktop {
+    @include desktop {
+        display: none !important;
+    }
+}
+
+
+// Анимации
+
+.fade-on {
+    animation: fadeOn $transition-duration ease-out forwards;
+}
+.fade-off {
+    animation: fadeOut $transition-duration ease-out forwards;
+}
+
+@for $i from 2 to 10 {
+    .fade-on-#{$i}x {
+        animation: fadeOn ($transition-duration * $i) ease-out forwards;
+    }
+    .fade-off-#{$i}x {
+        animation: fadeOut ($transition-duration * $i) ease-out forwards;
+    }
+}
+
+.pulse {
+    $fadetransition-duration: $transition-duration * 2;
+    @include animation('pulse #{$transition-duration} infinite', 'fadeOn #{$fadetransition-duration} forwards');
+}

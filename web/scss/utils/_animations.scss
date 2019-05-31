@@ -1,0 +1,125 @@
+// Project Animations
+//////////////////////////////////////////////////////
+
+// Multiply Animation Mixin
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+
+    animation: $animations;
+}
+
+// Crossbrowser Keyframes Mixin
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        $browser: '-webkit-' !global;
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        $browser: '-moz-' !global;
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        $browser: '-o-' !global;
+        @content;
+    }
+    @keyframes #{$animationName} {
+        $browser: '' !global;
+        @content;
+    }
+} $browser: null;
+
+
+@include keyframes(fadeOn) {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeOut) {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+
+@include keyframes(fallingDown) {
+    0% {
+        visibility: visible;
+        #{$browser}transform: translateY(-300%);
+    }
+    85% {
+        #{$browser}transform: translateY(0);
+    }
+    95% {
+        #{$browser}transform: translateY(-30%);
+    }
+    100% {
+        visibility: visible;
+        #{$browser}transform: translateY(0);
+    }
+}
+
+
+@include keyframes(pulse) {
+    0% {
+       #{$browser}transform: scale3d(0.8, 0.8, 0.8);
+    }
+    50% {
+        #{$browser}transform: scale3d(1, 1, 1);
+    }
+    100% {
+        #{$browser}transform: scale3d(0.8, 0.8, 0.8);
+    }
+}
+
+
+@include keyframes(slideLeftOut) {
+    0% {
+        #{$browser}transform: translateX(0);
+    }
+    100% {
+        #{$browser}transform: translateX(-100%);
+    }
+}
+
+@include keyframes(slideLeftOn) {
+    0% {
+        #{$browser}transform: translateX(100%);
+    }
+    100% {
+        #{$browser}transform: translateX(0);
+    }
+}
+
+@include keyframes(slideRightOut) {
+    0% {
+        #{$browser}transform: translateX(0);
+    }
+    100% {
+        #{$browser}transform: translateX(100%);
+    }
+}
+
+@include keyframes(slideRightOn) {
+    0% {
+        #{$browser}transform: translateX(-100%);
+    }
+    100% {
+        #{$browser}transform: translateX(0);
+    }
+}

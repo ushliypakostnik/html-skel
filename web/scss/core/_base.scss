@@ -1,0 +1,117 @@
+// Main Elements
+//////////////////////////////////////////////////////
+
+// @media all {}
+
+html {
+    -webkit-text-size-adjust: none;
+}
+
+body {
+    color: $text-color;
+    background: $white;
+    padding: 0;
+    quotes: "\00ab" "\00bb";
+
+    overflow-x: hidden; // not scrolling horizontal body
+
+    backface-visibility: hidden;
+
+    ::selection {
+        background: $active-color;
+    }
+}
+
+section,
+div,
+input,
+select,
+button,
+a {
+    box-sizing: border-box;
+}
+
+// Ccылки
+a {
+    color: $link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $link-hover-color;
+    }
+
+    &:hover, &:active , &:focus {
+        outline: none !important;
+        text-decoration: none;
+    }
+}
+
+// Списки по умолчанию
+ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+
+    // Списки с отступом и маркерами
+    &.list-style {
+        @extend %list-style;
+    }
+}
+
+// Секционно-смысловые блоки
+main, article, aside, figure, address {
+    margin: 0;
+    padding: 0;
+}
+
+// Кнопки
+button, a {
+    outline: none !important;
+
+    &:hover, &:active, &:focus {
+        outline: none !important;
+    }
+}
+
+// Поля ввода
+
+input, textarea, select {
+}
+
+textarea {
+    width: 100%;
+    max-width: 100%;
+}
+
+
+// WebKit Scrollbar
+//////////////////////////////////////////////////////
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: $size / 2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $main-color;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $text-color;
+}
+
+
+// Customize Placeholder
+//////////////////////////////////////////////////////
+
+::-webkit-input-placeholder {color: $color-placeholder !important;}
+::-moz-placeholder          {color: $color-placeholder !important;} /* Firefox 19+ */
+:-moz-placeholder           {color: $color-placeholder !important;} /* Firefox 18- */
+:-ms-input-placeholder      {color: $color-placeholder !important;}
+
+:focus::-webkit-input-placeholder {color: transparent;}
+:focus::-moz-placeholder          {color: transparent;}
+:focus:-moz-placeholder           {color: transparent;}
+:focus:-ms-input-placeholder      {color: transparent;}

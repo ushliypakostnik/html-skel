@@ -1,0 +1,246 @@
+{% extends "base.html" %}
+
+{% block template %}
+<div class="page sandbox">
+{% endblock %}
+
+{% block content %}
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Custom Line Chart</div>
+        </h2>
+        <div class="container">
+            <div id="customLineChart01" class="custom-line-chart-place"></div>
+            <div id="customLineChart02" class="custom-line-chart-place"></div>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Typography Base</div>
+        </h2>
+        <div class="container">
+            <h1>Съешь же ещё этих мягких французских булок, да выпей чаю.</h1>
+            <h2>Съешь же ещё этих мягких французских булок, да выпей чаю.</h2>
+            <h3>Съешь же ещё этих мягких французских булок, да выпей чаю.</h3>
+            <h4>Съешь же ещё этих мягких французских булок, да выпей чаю.</h4>
+            <h5>Съешь же ещё этих мягких французских булок, да выпей чаю.</h5>
+            <h6>Съешь же ещё этих мягких французских булок, да выпей чаю.</h6>
+            <p>Российская армия готова к любому развитию событий на Украине и в мире, а российская оборонная промышленность к быстрому замещению импорта, в том числе с Украины, в военном производстве. Об этом заявил, по словам депутатов, министр обороны <a href="#">Сергей Шойгу</a> в ходе закрытого правительственного часа в Госдуме.</p>
+            <p>Российская армия готова к любому развитию событий на Украине и в мире, а российская оборонная промышленность к быстрому замещению импорта, в том числе с Украины, в военном производстве. Об этом заявил, по словам депутатов, министр обороны Сергей Шойгу в ходе закрытого правительственного часа в Госдуме.</p>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Form Base</div>
+        </h2>
+        <div class="container">
+            <form class="form form-style form-horizontal labels-on-the-left">
+                <div class="form-group pendant-help-block has-success">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label">Название</label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                        <input type="text" class="form-control" />
+                        <span class="help-block">Заполните это поле!</span>
+                    </div>
+                </div>
+                <div class="form-group pendant-help-block has-warning">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label">Название</label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                        <input type="text" class="form-control" />
+                        <span class="help-block">Заполните это поле!</span>
+                    </div>
+                </div>
+                <div class="form-group pendant-help-block has-error">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label">Название</label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                        <input type="text" class="form-control" placeholder="placeholder" />
+                        <span class="help-block">Заполните это поле!</span>
+                    </div>
+                </div>
+                <div class="form-group pendant-help-block">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label">Категория</label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-5">
+                        <select class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                        <span class="help-block">Заполните это поле!</span>
+                    </div>
+                </div>
+                <div class="form-group pendant-help-block">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label">Текст новости</label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-7">
+                        <textarea class="form-control feedback" rows="2" placeholder="..."></textarea>
+                        <div class="textarea-help"></div>
+                        <span class="help-block">Заполните это поле!</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-12 col-sm-3 col-md-3 col-lg-3 control-label"></label>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-9">
+                        <div>
+                          <a href="#" class="btn btn-default">Default</a>
+                          <a href="#" class="btn btn-primary">Primary</a>
+                          <a href="#" class="btn btn-success">Success</a>
+                          <a href="#" class="btn btn-info">Info</a>
+                          <a href="#" class="btn btn-warning">Warning</a>
+                          <a href="#" class="btn btn-danger">Danger</a>
+                          <a href="#" class="btn btn-link">Link</a>
+                        </div>
+                        <div>
+                          <a href="#" class="btn btn-default disabled">Default</a>
+                          <a href="#" class="btn btn-primary disabled">Primary</a>
+                          <a href="#" class="btn btn-success disabled">Success</a>
+                          <a href="#" class="btn btn-info disabled">Info</a>
+                          <a href="#" class="btn btn-warning disabled">Warning</a>
+                          <a href="#" class="btn btn-danger disabled">Danger</a>
+                          <a href="#" class="btn btn-link disabled">Link</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Modal Test</div>
+        </h2>
+        <div class="container">
+            <button class="btn btn-lg modal-template-trigger">Модаль</button>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Bootstrap Grid</div>
+        </h2>
+        <div class="container">
+            <div class="test-row">
+                <div class="row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Font-Awesome Test</div>
+        </h2>
+        <div class="container">
+            <ul class="icon-list">
+                <li><i class="fa fa-truck"></i></li>
+                <li><i class="fa fa-paw"></i></li>
+                <li><i class="fa fa-flash"></i></li>
+            </ul>
+        </div>
+        <h2 class="sandbox-header">
+            <div class="container">Custom Font Test</div>
+        </h2>
+        <div class="container">
+            <ul class="icon-list">
+                <li><i class="icon icon-close"></i></li>
+                <li><i class="icon icon-up"></i></li>
+                <li><i class="icon icon-navicon"></i></li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Canvas Test</div>
+        </h2>
+        <div class="container">
+            <canvas id="test-01" width="900" height="150"></canvas>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Flexbox Sandbox</div>
+        </h2>
+        <div class="container">
+            <div class="flexbox test-row">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+                <div>4</div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <h2 class="sandbox-header">
+            <div class="container">Swiper Sandbox</div>
+        </h2>
+        <div class="swiper-container slider-main" id="slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide-1">
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <h2>Слайд 1</h2>
+                        <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-2">
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <h2>Слайд 2</h2>
+                        <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                    </div>
+                </div>
+                <div class="swiper-slide slide-3">
+                    <div class="overlay"></div>
+                    <div class="text">
+                        <h2>Слайд 3</h2>
+                        <a href="#">Узнать больше<span class="icon icon-right"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block modals %}
+    {{ super() }}
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    Sandbox.init({
+        debug: debug
+    });
+{% endblock %}

@@ -1,0 +1,74 @@
+// Страница Style Guideline
+//////////////////////////////////////////////////////
+
+.css-guidline {
+
+    // Container
+    main .container {
+        padding: ($size * 2) $size;
+        max-width: 1200px;
+
+        @include mobile {
+            padding: $size ($size / 2);
+        }
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $text-color;
+    }
+
+    p {
+        font-weight: normal;
+    }
+
+    ul, ol {
+        @extend %list-style;
+        margin-bottom: $size;
+
+        > li {
+            margin-bottom: $size / 2;
+        }
+
+        ul {
+            list-style-type: square;
+
+            > li {
+                margin-bottom: $size / 4;
+            }
+        }
+
+        ol {
+            list-style-type: decimal;
+        }
+    }
+
+    p,
+    ul, ol {
+        @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+    }
+
+    .code {
+        margin-top: $size;
+        margin-bottom: $size;
+    }
+
+    .quote {
+        @extend %quote-content;
+    }
+
+    section {
+        padding-top: $size;
+        padding-bottom: $size;
+
+        @include mobile {
+            padding-top: $size / 2;
+            padding-bottom: $size / 2;
+        }
+    }
+
+    pre[class*="language-"] {
+        padding: 0;
+        margin: ($size / 2) 0;
+    }
+
+}

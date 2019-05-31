@@ -1,0 +1,8 @@
+// Slick Customize
+//////////////////////////////////////////////////////
+
+.slick-slide {
+    &, &:hover, &:active, &:focus {
+        outline: none;
+    }
+}

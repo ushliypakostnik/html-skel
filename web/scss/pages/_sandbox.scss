@@ -1,0 +1,102 @@
+// Страница Стиль и Песоцница
+//////////////////////////////////////////////////////
+
+.sandbox {
+
+    .sandbox-header {
+        background: fade-out($main-color, 0.4);
+        color: lighten($main-color, ($fade * 6));
+        margin: 0;
+    }
+
+    .icon-list {
+        margin-top: $size * 2;
+        margin-bottom: $size * 2;
+
+        > li {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            line-height: $font-size-large;
+            @include size($font-size-large, $font-size-large);
+
+            &:not(:last-child) {
+                margin-left: $size / 2;
+            }
+        }
+
+        .fa, .icon {
+            font-size: $font-size-large;
+        }
+    }
+
+    .modal-template-trigger {
+        margin: ($size / 2) 0 $size;
+    }
+
+    .test-row {
+        margin-top: $size;
+        margin-bottom: $size;
+
+        & > .row > div > div,
+        &.flexbox > div {
+            background: fade-out($main-color, 0.4);
+            text-align: center;
+            color: $white;
+            @include text($serif-font-family, $font-size-large, $serif-bold-font-weight);
+            height: 250px;
+            line-height: 250px;
+        }
+    }
+}
+
+
+// Кастомный линейный чарт
+.custom-line-chart {
+    margin: $size 0;
+
+    &__name {
+        color: $text-color;
+        @include text($sans-font-family, $font-size-small, $sans-black-font-weight);
+    }
+
+    &__items,
+    &__labels {
+        white-space: nowrap;
+
+        > div {
+            display: inline-block;
+            vertical-align: top;
+            min-height: 1px;
+        }
+    }
+
+    &__items {
+        height: round($line-height-xsmall-custom * 0.75);
+        overflow: hidden;
+        border-radius: $border-radius-xs;
+
+        > div {
+            height: round($line-height-xsmall-custom * 0.75);
+            background: $text-color;
+
+            &.on {
+                background: $main-color;
+            }
+        }
+    }
+
+    &__labels {
+        height: round($line-height-xsmall-custom * 0.75);
+
+        &.off {
+            display: none;
+        }
+
+        > div {
+            text-align: center;
+            color: darken($disabled-color, ($fade * 2));
+            @include text($sans-font-family, round($font-size-xsmall * 0.75), $sans-regular-font-weight);
+        }
+    }
+}

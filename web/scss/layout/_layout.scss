@@ -1,0 +1,110 @@
+// Основной шаблон
+//////////////////////////////////////////////////////
+
+.page {
+
+    $image-path: $image-path + 'layout/';
+
+    $panel-width: 250px;
+    $header-height: 70px;
+    $footer-height: 42px;
+
+    // Кнопки панели
+    #panelOpen, #panelClose {
+        line-height: $size * 2;
+        position: absolute;
+        text-align: center;
+        font-size: $font-size-large;
+        color: $white;
+        @include size($size * 2, $size * 2);
+    }
+    #panelOpen {
+        top: 0;
+        left: $size / 2;
+
+        @media (max-width: ($screen-sm + 120px)) {
+            left: auto;
+            right: $size;
+        }
+    }
+    #panelClose {
+        top: $size / 2;
+        right: $size * 1.25;
+    }
+
+    &__overlay {
+        @extend %overlay;
+        display: none;
+        background: fade-out($white, 0.5);
+        z-index: $overlay-layout;
+        @include opacity(0);
+    }
+
+    &__panel {
+        position: fixed;
+        top: 0;
+        left: -1 * $panel-width;
+        bottom: 0;
+        background: $black;
+        width: $panel-width;
+        z-index: $panel-layout;
+        padding: $header-height ($size / 2) $size ($size / 2);
+
+        ul {
+            > li {
+                a {
+                    @include text($sans-font-family, $font-size-normal, $sans-regular-font-weight);
+                }
+            }
+        }
+    }
+
+    &__content {
+        position: relative;
+        padding-top: $header-height;
+        padding-bottom: $footer-height + ($size * 2);
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: $main-color;
+            padding-top: $size / 2;
+            padding-bottom: $size / 2;
+            z-index: $fixed-layout;
+            box-shadow: $shadow-coords-x $shadow-coords-y $shadow-size $shadow-stretch $shadow-color;
+            @include size(100%, $header-height);
+
+            nav {
+                position: relative;
+            }
+
+            .logo {
+                display: inline-block;
+                vertical-align: top;
+                @include size($header-height - $size, $header-height - $size);
+                background: url("#{$image-path}logo.png") 50% 0 no-repeat;
+                background-size: cover;
+            }
+        }
+
+        footer {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin-top: $size * 2;
+            background: $text-color;
+            padding-top: $size / 2;
+            padding-bottom: $size / 2;
+            text-align: right;
+
+            a {
+                @include link-style($white, $white);
+            }
+        }
+    }
+
+}

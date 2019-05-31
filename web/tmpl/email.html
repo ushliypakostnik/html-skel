@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+{% block style %}
+<style>
+    body {
+        width: 600px;
+        max-width: 600px;
+        height: auto;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+        background: #0e181e;
+        color: #404040;
+        font-size: 100%;
+
+        font-family: 'Helvetica', 'Arial', sans-serif;
+    }
+
+    a {
+        color: #2f9a62;
+        text-decoration: underline;
+    }
+    a:hover {
+        text-decoration: none;
+    }
+
+    strong {
+        font-weight: bold;
+    }
+
+    table {
+        height: auto;
+        background: #182933;
+    }
+
+    #back {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .tr-text {
+        background: #182933;
+    }
+
+    .header {
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        color: #98a3ae;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .text {
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: normal;
+        color: #98a3ae;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        width: 300px;
+        height: 16px;
+        line-height: 16px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+        background: #8b688f;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 3px;
+        text-decoration: none;
+        -moz-border-radius: 3px;
+        -webkit-border-radius: 3px;
+        border-radius: 3px;
+    }
+    .button:hover {
+        text-decoration: none;
+    }
+
+    .tr-footer {
+        height: auto;
+        background: #0a1216;
+        color: #828e9c;
+    }
+    .tr-footer p {
+        font-size: 11px;
+        line-height: 13px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        letter-spacing: normal;
+    }
+    .tr-footer a {
+        text-decoration: underline;
+        color: #98395b;
+    }
+    .tr-footer a:hover {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}
+
+</head>
+<body>
+{% block content %}
+    <table border="0" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+        <tr class="tr-header">
+            <th align="left" valign="top">
+                <img border="0" id="back" width="100%" src="./img/emailheader.jpg" />
+            </th>
+        </tr>
+        <tr class="tr-text">
+            <td align="center" valign="top">
+                {% block header %}
+                <p class="header">Basic email template</p>
+                {% endblock %}
+            </td>
+        </tr>
+        <tr class="tr-text">
+            <td align="center" valign="top">
+                {% block text %}
+                <p class="text">Lorem Ipsum is simply dummy text of the printing and <a href="#">typesetting industry</a>. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries.</p>
+                {% endblock %}
+            </td>
+        </tr>
+        <tr class="tr-text">
+            <td align="center" valign="top">
+                {% block button %}
+                <a class="button" href="#">Перейти к сервису</a>
+                {% endblock %}
+            </td>
+        </tr>
+        <tr class="tr-footer">
+            <td align="center" valign="top">
+                <p>Если Вы не желаете больше получать подобную информацию или считаете, что настоящее<br />письмо было отправлено Вам ошибочно - сообщите нам по ссылке <a href="#">Отписаться от рассылки.</a></p>
+            </td>
+        </tr>
+    </table>
+{% endblock %}
+</body>
+</html>
