@@ -14,7 +14,6 @@ var DesignTemplateAjax = (function($, Logger, Page, ScreenHelper) {
     };
 
     var ui = {};
-    //window.designLayoutUi = ui;
 
     var logger;
 
