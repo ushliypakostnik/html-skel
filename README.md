@@ -1,7 +1,7 @@
 Skel_scss_bootstrap3 static project
 ===================================
 
-Стартовый проект для проектирования, дизайна и верстки адаптивной маштабируемой статики (HTML / CSS / JS) с Nunjucks, SCSS, Bootstrap3, JQuery, Grunt, FontAwesome и Fontello, и еще кучей кастомных фич и модулей.
+Морально устаревший стартовый проект для проектирования, дизайна и верстки адаптивной маштабируемой статики (HTML / CSS / JS) с Nunjucks, SCSS, Bootstrap3, JQuery, Grunt, FontAwesome и Fontello, и еще кучей кастомных фич и модулей.
 
 
 Deploy
@@ -127,39 +127,3 @@ Cборка
 * Cтраница может использовать несколько js-модулей одновременно.
 
 * Несколько страниц могут использовать один и тот же модуль.
-
-
-Nginx config example
---------------------
-
-    server {
-        listen *:80;
-        server_name project.lo;
-
-        root /path/to/project;
-
-        index index.html;
-        autoindex on;
-
-        access_log /var/log/nginx/project.access.log;
-        error_log /var/log/nginx/project.error.log;
-
-        set_real_ip_from 127.0.0.1;
-        real_ip_header X-Forwarded-For;
-
-        location = /favicon.ico {
-            log_not_found off;
-            access_log off;
-        }
-
-        location ~* ^.+\.(html|css|less|js|txt|xml|ttf|svg|eot|woff|zip|tgz|gz|rar|bz2|doc|xls|exe|pdf|ppt|tar|wav|mp3|ogg|rtf)$ {
-            access_log off;
-            expires 1y;
-        }
-
-        location ~* ^.+\.(jpg|jpeg|gif|png|ico|bmp|swf|flv)$ {
-            access_log off;
-            expires 1y;
-            add_header Cache-Control public;
-        }
-    }
