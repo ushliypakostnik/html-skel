@@ -1,27 +1,29 @@
 // Grids
 //////////////////////////////////////////////////////
 
-// Примесь для построения простой резиновой сетки из заданного числа колонок с заданным в процентах резиновым отступом между ними
+// Примесь для построения простой резиновой сетки
+// из заданного числа колонок
+// с заданным резиновым отступом в процентах между ними
 // @author Левон Гамбарян
 //
 // @param {Number} $columns - количество колонок
 // @param {Percentage} $gutter - отступ в процентах
 //
 @mixin make-grid($columns, $gutter) {
-
     // Вычисляем ширину колонки
     $column-width: (100% - ($gutter * ($columns - 1))) / $columns;
 
-    > div {
+    > div,
+    > li {
         width: $column-width;
 
         // Выставляем отступ всем колонкам кроме последней
-        &:not(:last-child) {
+        &:not(:nth-child(#{$columns}n)) {
             margin-right: $gutter;
         }
 
         // У последней колонки нет оступа
-        &:last-child {
+        &:nth-child(#{$columns}n) {
             margin-right: 0;
         }
 
@@ -34,17 +36,18 @@
     }
 
     &.no-mobile {
-        > div {
+        > div,
+        > li {
             // На мобильных - разворачиваем сетку в столбец
             @include xs {
                 display: block;
-                width: 100% !important;
+                width: 100%;
             }
 
-            &:not(:last-child) {
+            &:not(:nth-child(#{$columns}n)) {
                 // На мобильных выставляем нулевой отступ всем колонкам
                 @include xs {
-                    margin-right: 0 !important;
+                    margin-right: 0;
                 }
             }
 
@@ -52,8 +55,8 @@
             @for $i from 2 to $columns {
                 &.glued-#{$i} {
                     @include xs {
-                        display: block !important;
-                        width: 100% !important;
+                        display: block;
+                        width: 100%;
                     }
                 }
             }
@@ -75,30 +78,5 @@
 
     &.grid-for-three {
         @include make-grid (3, 1.4%);
-    }
-}
-
-// Flexbox mixins
-
-@mixin flexbox {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-// Flex on not desctop
-@mixin not-lg-flexbox {
-  @include not-lg {
-    @include flexbox;
-  }
-}
-
-// Flexbox grid
-.flexbox {
-    @include flexbox;
-
-    > * {
-        flex: auto;
     }
 }
